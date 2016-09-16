@@ -25,6 +25,12 @@ public class CrimeLab {
             c.setmTitle("Crime #:"+i);
             mCrimes.add(c);
         }
+        String nuEtoZheTakProsto;
+
+        String nuEtoZheTakTrudno;
+
+        //nezt
+        ArrayList<String> ddfa = new ArrayList<>();
     }
 
     public static CrimeLab get(Context c) {
