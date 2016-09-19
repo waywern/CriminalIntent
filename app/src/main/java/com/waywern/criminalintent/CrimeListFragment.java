@@ -1,5 +1,6 @@
 package com.waywern.criminalintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -37,6 +38,9 @@ public class CrimeListFragment extends ListFragment {
         //Crime c = (Crime)(getListAdapter()).getItem(position);
         Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
         Log.d(TAG, c.getmTitle() + " was clicked");
+
+        Intent i = new Intent(getActivity(), CrimeActivity.class);
+        startActivity(i);
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
