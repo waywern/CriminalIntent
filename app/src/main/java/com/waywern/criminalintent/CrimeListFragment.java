@@ -40,6 +40,7 @@ public class CrimeListFragment extends ListFragment {
         Log.d(TAG, c.getmTitle() + " was clicked");
 
         Intent i = new Intent(getActivity(), CrimeActivity.class);
+        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
         startActivity(i);
     }
 
