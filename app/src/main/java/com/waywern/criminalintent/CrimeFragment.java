@@ -31,7 +31,7 @@ public class CrimeFragment extends Fragment {
         //mCrime = new Crime();
 
         UUID crime_id = (UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);
-        CrimeLab.get(getActivity()).getCrimeUUID(crime_id);
+        mCrime = CrimeLab.get(getActivity()).getCrimeUUID(crime_id);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class CrimeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_crime, parent, false);
         mTitleField = (EditText)v.findViewById(R.id.crime_title);
-
+        mTitleField.setText(mCrime.getmTitle());
         mTitleField.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence c, int start, int before, int count) {
                 mCrime.setmTitle(c.toString());
@@ -59,6 +59,7 @@ public class CrimeFragment extends Fragment {
         mDateButton.setEnabled(false);
 
         mSolved = (CheckBox) v.findViewById(R.id.checkBox);
+        mSolved.setChecked(mCrime.ismSolved());
         mSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mCrime.setmSolved(isChecked);
