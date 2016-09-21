@@ -45,7 +45,6 @@ public class CrimeListFragment extends ListFragment {
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
-
         public CrimeAdapter(ArrayList<Crime> crimes) {
             super(getActivity(), 0, crimes);
         }
@@ -68,6 +67,11 @@ public class CrimeListFragment extends ListFragment {
             solvedCheckBox.setChecked(c.ismSolved());
             return convertView;
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
 
     }
 }
