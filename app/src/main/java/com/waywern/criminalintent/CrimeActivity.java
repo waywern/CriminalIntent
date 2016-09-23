@@ -7,10 +7,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import java.util.UUID;
+//After insert pager implementation, not needed. Pager allow to scroll right or left your crimes record from detailes for record
+/*
+public class CrimeActivity extends //FragmentActivity
+SingleFragmentActivity {
 
-public class CrimeActivity extends /*FragmentActivity*/ SingleFragmentActivity {
-
-    /*@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
@@ -21,11 +23,11 @@ public class CrimeActivity extends /*FragmentActivity*/ SingleFragmentActivity {
             fragment = new CrimeFragment();
             fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
         }
-    }*/
+    }
     @Override
     protected Fragment createFragment() {
         //return new CrimeFragment();
         UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
         return CrimeFragment.newInstance(crimeId);
     }
-}
+}*/
