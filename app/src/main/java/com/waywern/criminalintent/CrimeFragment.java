@@ -2,6 +2,7 @@ package com.waywern.criminalintent;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -23,7 +24,8 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolved;
-    public static String EXTRA_CRIME_ID = "com.bignerdranch.android.criminalintent.crime_id";;
+    public static String EXTRA_CRIME_ID = "com.bignerdranch.android.criminalintent.crime_id";
+    private static final String DIALOG_DATE = "date";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,15 @@ public class CrimeFragment extends Fragment {
         android.text.format.DateFormat df = new android.text.format.DateFormat();
         CharSequence Date_Formatted = df.format("yyyy-MM-dd", mCrime.getmDate());
         mDateButton.setText(Date_Formatted);
-        mDateButton.setEnabled(false);
+        //mDateButton.setEnabled(false);
+        mDateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                FragmentManager fm = getActivity()
+                        .getSupportFragmentManager();
+                DatePickerFragment dialog = new DatePickerFragment();
+                dialog.show(fm, DIALOG_DATE);
+            }
+        });
 
         mSolved = (CheckBox) v.findViewById(R.id.checkBox);
         mSolved.setChecked(mCrime.ismSolved());
