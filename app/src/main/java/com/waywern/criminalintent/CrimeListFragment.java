@@ -25,6 +25,7 @@ public class CrimeListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        Log.d(TAG, "onCreate !!!");
         getActivity().setTitle(R.string.crimes_title);
         mCrimes = CrimeLab.get(getActivity()).getmCrimes();
 
@@ -80,10 +81,10 @@ public class CrimeListFragment extends ListFragment {
         ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
 
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        Log.d(TAG, "onCreateOptionsMenu !!!");
         inflater.inflate(R.menu.fragment_crime_list, menu);
 
     }
